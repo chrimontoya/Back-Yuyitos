@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.pi.almacen.mapper.ProductMapper">
+    <resultMap id="productResultMap" type="cl.pi.almacen.model.Product">
+        <result column="id_producto" property="id"/>
+        <result column="nombre" property="name"/>
+        <result column="cantidad" property="stock"/>
+        <result column="fecha_vencimiento" property="date_expirate"/>
+        <result column="imagen" property="image"/>
+    </resultMap>
+
+    <sql id="productSql" >
+        SELECT id_producto,nombre,cantidad,fecha_vencimiento,imagen,TIPO_CATEGORIA_id_tipo_categoria
+        FROM almacen.PRODUCTO
+    </sql>
+    <select id="getAll" resultMap="productResultMap">
+        <include refid="productSql"/>
+    </select>
+</mapper>

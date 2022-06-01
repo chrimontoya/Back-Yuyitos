@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.pi.almacen.mapper.CategoryMapper">
+    <resultMap id="categoryResultMap" type="cl.pi.almacen.model.Category">
+        <collection property="categoryTypes" column="id_categoria" select="selectAllCategoryTypes" />
+    </resultMap>
+    <select id="getAll" resultMap="categoryResultMap">
+        SELECT * FROM CATEGORIA
+    </select>
+    <select id="selectAllCategoryTypes" resultType="cl.pi.almacen.model.CategoryType">
+        SELECT * FROM TIPO_CATEGORIA WHERE CATEGORIA_id_categoria = #{id}
+    </select>
+</mapper>

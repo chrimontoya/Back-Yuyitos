@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.pi.almacen.mapper.OrderMapper">
+    <resultMap id="orderResultMap" type="cl.pi.almacen.model.Order">
+        <result column="id_orden" property="id"/>
+        <result column="fecha" property="dateCreate"/>
+        <result column="estado" property="status"/>
+    </resultMap>
+
+    <sql id="orderSql" >
+        SELECT id_orden,estado,fecha
+        FROM almacen.ORDEN
+    </sql>
+    <select id="getAll" resultMap="orderResultMap">
+        <include refid="orderSql"/>
+    </select>
+</mapper>

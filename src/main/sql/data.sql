@@ -1,0 +1,28 @@
+INSERT INTO almacen.CATEGORIA (nombre) values ("Alimentos no perecibles");
+INSERT INTO almacen.CATEGORIA (nombre) values ("Alimentos perecibles");
+INSERT INTO almacen.CATEGORIA (nombre) values ("Bebidas");
+INSERT INTO almacen.CATEGORIA (nombre) values ("Articulos de aseo");
+INSERT INTO almacen.CATEGORIA (nombre) values ("Articulos de bazar");
+
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Azucar 1Kg",1);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Azucar 5Kg",1);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Sal 1Kg",1);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Sal 5Kg",1);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Café 170g",1);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Café 400g",1);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Harina 1Kg",1);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Harina 5Kg",1);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Leche en polvo 700g",1);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Leche en polvo 1500g",1);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Frutas y Verduras",2);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Carne de vacuno",2);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Bebida 1L",3);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Bebida 2L",3);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Bebida 3L",3);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Detergente 1L",4);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Detergente 3L",4);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Lavaloza 1L",4);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Lavaloza 5L",4);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Confort 12u",5);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Confort 24u",5);
+INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Vasos de plastico",5);
