@@ -1,13 +1,7 @@
 package cl.pi.almacen.service;
 
-import cl.pi.almacen.mapper.CategoryMapper;
-import cl.pi.almacen.mapper.CategoryTypeMapper;
-import cl.pi.almacen.mapper.OrderMapper;
-import cl.pi.almacen.mapper.ProductMapper;
-import cl.pi.almacen.model.Category;
-import cl.pi.almacen.model.CategoryType;
-import cl.pi.almacen.model.Order;
-import cl.pi.almacen.model.Product;
+import cl.pi.almacen.mapper.*;
+import cl.pi.almacen.model.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,12 +14,15 @@ public class Service {
     @Autowired
     private OrderMapper orderMapper;
     @Autowired
+    private OrderDetailsMapper orderDetailsMapper;
+    @Autowired
     private ProductMapper productMapper;
     @Autowired
     private CategoryTypeMapper categoryTypeMapper;
     @Autowired
     private CategoryMapper categoryMapper;
-
+    @Autowired
+    private SupplierMapper supplierMapper;
     public List<Order> getAllOrder(){
         return orderMapper.getAll();
     };
@@ -45,9 +42,27 @@ public class Service {
         orderMapper.delete(id);
     }
 
+    public List<OrderDetails> getAllOrdersDetails(){
+        return orderDetailsMapper.getAll();
+    }
+
+    public OrderDetails getByIdOrderDetails(Integer id){
+        return orderDetailsMapper.getById(id);
+    }
+
+    public void saveOrderDetails(OrderDetails orderDetails) {
+        if(orderDetails.getId()==null){
+            orderDetailsMapper.insert(orderDetails);
+        }else{
+            orderDetailsMapper.update(orderDetails);
+        }
+    }
+
     public List<Product> getAllProduct(){
         return productMapper.getAll();
     }
+
+    public Product getByIdProduct(Integer id){ return productMapper.getById(id);}
 
     public void saveProduct(Product product){
         if(product.getId()==null){
@@ -56,6 +71,11 @@ public class Service {
             productMapper.update(product);
         }
     }
+
+    public void deleteProduct(Integer id){
+        productMapper.delete(id);
+    }
+
     public List<CategoryType> getAllCategoryType(){
         return categoryTypeMapper.getAll();
     }
@@ -66,5 +86,12 @@ public class Service {
 
     public CategoryType getByIdCategoryType(Integer id){
         return categoryTypeMapper.getById(id);
+    }
+
+    public List<Supplier> getAllSupplier(){
+        return supplierMapper.getAll();
+    }
+    public Supplier getById(Integer id){
+        return supplierMapper.getById(id);
     }
 }

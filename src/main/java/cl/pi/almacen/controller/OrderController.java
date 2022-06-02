@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false" )
 @RestController
 public class OrderController {
     @Autowired
@@ -23,7 +24,7 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public void post(@PathVariable Order order){
+    public void post(@RequestBody Order order){
         service.saveOrder(order);
     }
 

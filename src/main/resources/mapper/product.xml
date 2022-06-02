@@ -9,6 +9,7 @@
         <result column="cantidad" property="stock"/>
         <result column="fecha_vencimiento" property="date_expirate"/>
         <result column="imagen" property="image"/>
+        <result column="TIPO_CATEGORIA_id_tipo_categoria" property="categoryType"/>
     </resultMap>
 
     <sql id="productSql" >
@@ -18,4 +19,16 @@
     <select id="getAll" resultMap="productResultMap">
         <include refid="productSql"/>
     </select>
+    <select id="getById" resultMap="productResultMap">
+        <include refid="productSql"/>
+        WHERE id_producto = #{id}
+    </select>
+    <insert id="insert">
+        INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria)
+        VALUES ( #{name},#{stock},#{date_expirate},#{image},#{categoryType})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM almacen.PRODUCTO WHERE id_producto = #{id}
+    </delete>
 </mapper>

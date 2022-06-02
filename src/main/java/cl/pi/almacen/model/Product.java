@@ -9,9 +9,9 @@ public class Product {
     private Integer stock;
     private Date date_expirate;
     private String image;
-    private CategoryType categoryType;
+    private Integer categoryType;
 
-    public Product(Integer id, String name, Integer stock, Date date_expirate, String image, CategoryType categoryType) {
+    public Product(Integer id, String name, Integer stock, Date date_expirate, String image, Integer categoryType) {
         this.id = id;
         this.name = name;
         this.stock = stock;
@@ -60,11 +60,11 @@ public class Product {
         this.image = image;
     }
 
-    public CategoryType getCategoryType() {
+    public Integer getCategoryType() {
         return categoryType;
     }
 
-    public void setCategoryType(CategoryType categoryType) {
+    public void setCategoryType(Integer categoryType) {
         this.categoryType = categoryType;
     }
 }

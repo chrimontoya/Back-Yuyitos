@@ -6,5 +6,10 @@
     <mappers>
         <mapper resource="mapper/category.xml"/>
         <mapper resource="mapper/categoryType.xml"/>
+        <mapper resource="mapper/product.xml"/>
+        <mapper resource="mapper/order.xml"/>
+        <mapper resource="mapper/orderDetails.xml"/>
+        <mapper resource="mapper/supplier.xml"/>
+        <mapper resource="mapper/item.xml"/>
     </mappers>
 </configuration>

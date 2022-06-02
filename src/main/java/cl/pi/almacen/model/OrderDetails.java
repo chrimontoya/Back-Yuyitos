@@ -4,29 +4,29 @@ import java.util.Date;
 
 public class OrderDetails {
 
-    public int id;
+    public Integer id;
     public String nameProduct;
-    public int stock;
-    public int price;
-    public Date date_expiration;
-    public Product product;
-    public Order order;
+    public Integer stock;
+    public Integer price;
+    public Date dateExpiration;
+    public Integer product;
+    public Integer order;
 
-    public OrderDetails(int id, String nameProduct, int stock, int price, Date date_expiration, Product product, Order order) {
+    public OrderDetails(Integer id, String nameProduct, Integer stock, Integer price, Date dateExpiration, Integer product, Integer order) {
         this.id = id;
         this.nameProduct = nameProduct;
         this.stock = stock;
         this.price = price;
-        this.date_expiration = date_expiration;
+        this.dateExpiration = dateExpiration;
         this.product = product;
         this.order = order;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -38,43 +38,43 @@ public class OrderDetails {
         this.nameProduct = nameProduct;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
-    public Date getDate_expiration() {
-        return date_expiration;
+    public Date getDateExpiration() {
+        return dateExpiration;
     }
 
-    public void setDate_expiration(Date date_expiration) {
-        this.date_expiration = date_expiration;
+    public void setDateExpiration(Date dateExpiration) {
+        this.dateExpiration = dateExpiration;
     }
 
-    public Product getProduct() {
+    public Integer getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(Integer product) {
         this.product = product;
     }
 
-    public Order getOrder() {
+    public Integer getOrder() {
         return order;
     }
 
-    public void setOrder(Order order) {
+    public void setOrder(Integer order) {
         this.order = order;
     }
 }

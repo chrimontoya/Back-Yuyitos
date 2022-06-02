@@ -11,6 +11,11 @@ import java.util.List;
 public interface ProductMapper {
 
     List<Product> getAll();
+    Product getById(Integer id);
     void insert(Product product);
     void update(Product product);
+    void delete(Integer id);
+
+
+
 }

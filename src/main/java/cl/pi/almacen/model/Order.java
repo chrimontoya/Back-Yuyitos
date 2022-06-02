@@ -1,19 +1,20 @@
 package cl.pi.almacen.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Order {
 
     private Integer id;
     private Boolean status;
     private Date dateCreate;
-    private OrderDetails orderDetails;
+    private Integer supplier;
 
-    public Order(Integer id, Boolean status, Date dateCreate, OrderDetails orderDetails) {
+    public Order(Integer id, Boolean status, Date dateCreate, Integer supplier) {
         this.id = id;
         this.status = status;
         this.dateCreate = dateCreate;
-        this.orderDetails = orderDetails;
+        this.supplier = supplier;
     }
 
     public Integer getId() {
@@ -40,11 +41,11 @@ public class Order {
         this.dateCreate = dateCreate;
     }
 
-    public OrderDetails getOrderDetails() {
-        return orderDetails;
+    public Integer getSupplier() {
+        return supplier;
     }
 
-    public void setOrderDetails(OrderDetails orderDetails) {
-        this.orderDetails = orderDetails;
+    public void setSupplier(Integer supplier) {
+        this.supplier = supplier;
     }
 }

@@ -7,13 +7,27 @@
         <result column="id_orden" property="id"/>
         <result column="fecha" property="dateCreate"/>
         <result column="estado" property="status"/>
+        <result column="PROVEEDOR_id_proveedor" property="supplier"/>
     </resultMap>
 
     <sql id="orderSql" >
-        SELECT id_orden,estado,fecha
+        SELECT id_orden,estado,fecha,PROVEEDOR_id_proveedor
         FROM almacen.ORDEN
     </sql>
     <select id="getAll" resultMap="orderResultMap">
         <include refid="orderSql"/>
     </select>
+    <select id="getById" resultMap="orderResultMap">
+        <include refid="orderSql"/>
+        WHERE id_orden = #{id}
+    </select>
+    <insert id="insert">
+        INSERT INTO almacen.ORDEN (fecha, estado, PROVEEDOR_id_proveedor) VALUES (#{dateCreate},#{status},#{supplier})
+    </insert>
+    <update id="update">
+        UPDATE almacen.ORDEN SET fecha = #{dateCreate}, estado = #{status}, PROVEEDOR_id_proveedor = #{supplier} WHERE id_orden = #{id}
+    </update>
+    <delete id="delete">
+        DELETE FROM almacen.ORDEN WHERE id_orden = #{id}
+    </delete>
 </mapper>
