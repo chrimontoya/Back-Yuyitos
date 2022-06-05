@@ -23,6 +23,9 @@ public class Service {
     private CategoryMapper categoryMapper;
     @Autowired
     private SupplierMapper supplierMapper;
+
+    @Autowired
+    private ContactMapper contactMapper;
     public List<Order> getAllOrder(){
         return orderMapper.getAll();
     };
@@ -94,4 +97,6 @@ public class Service {
     public Supplier getById(Integer id){
         return supplierMapper.getById(id);
     }
+
+
 }

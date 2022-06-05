@@ -1,5 +1,6 @@
 package cl.pi.almacen.controller;
 
+import cl.pi.almacen.model.Contact;
 import cl.pi.almacen.model.Supplier;
 import cl.pi.almacen.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,5 @@ public class SupplierController {
     public Supplier getById(@PathVariable Integer id){
         return service.getById(id);
     }
-
 
 }

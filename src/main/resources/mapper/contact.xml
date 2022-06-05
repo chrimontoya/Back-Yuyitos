@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.pi.almacen.mapper.ContactMapper">
+    <resultMap id="contactResultMap" type="cl.pi.almacen.model.Contact">
+        <id column="id_contacto" property="id"/>
+        <result column="email" property="email"/>
+        <result column="telefono" property="phone"/>
+        <result column="PROVEEDOR_id_proveedor" property="proveedor"/>
+    </resultMap>
+    <sql id="selectSql">
+        SELECT * FROM CONTACTO
+    </sql>
+    <select id="getAll" resultMap="contactResultMap">
+        <include refid="selectSql"/>
+    </select>
+    <select id="getById" resultMap="contactResultMap">
+        <include refid="selectSql"/>
+        WHERE PROVEEDOR_id_proveedor = #{id}
+    </select>
+</mapper>

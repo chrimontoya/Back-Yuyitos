@@ -9,8 +9,12 @@
         <result column="dv" property="dv"/>
         <result column="nombre" property="name"/>
         <association property="item" column="RUBRO_id_rubro" select="cl.pi.almacen.mapper.ItemMapper.getById"/>
+        <association property="contact" column="id_proveedor" select="cl.pi.almacen.mapper.ContactMapper.getById"/>
     </resultMap>
+    <sql id="selectSql">
+        SELECT P.id_proveedor, P.rut, P.dv, P.nombre, P.RUBRO_id_rubro FROM PROVEEDOR P
+    </sql>
     <select id="getAll" resultMap="supplierResultMap">
-        SELECT id_proveedor, rut, dv, nombre, RUBRO_id_rubro FROM PROVEEDOR
+        <include refid="selectSql"/>
     </select>
 </mapper>

@@ -6,8 +6,9 @@ public class Supplier {
     private Integer rut;
     private Character dv;
     private String name;
-
     private Item item;
+
+    private Contact contact;
 
     public Supplier(Integer id, Integer rut, Character dv, String name) {
         this.id = id;
@@ -50,6 +51,14 @@ public class Supplier {
 
     public String getName() {
         return name;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 
     public void setName(String name) {
