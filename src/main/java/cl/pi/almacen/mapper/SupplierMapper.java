@@ -13,6 +13,7 @@ public interface SupplierMapper {
 
     List<Supplier> getAll();
     Supplier getById(Integer id);
-
-
+    void insert(Supplier supplier);
+    void update(Supplier supplier);
+    void delete(Integer id);
 }

@@ -26,6 +26,9 @@ public class Service {
 
     @Autowired
     private ContactMapper contactMapper;
+
+    @Autowired
+    private ItemMapper itemMapper;
     public List<Order> getAllOrder(){
         return orderMapper.getAll();
     };
@@ -98,5 +101,22 @@ public class Service {
         return supplierMapper.getById(id);
     }
 
+    public void saveSupplier(Supplier supplier){
+        if(supplier.getId()==null){
+            supplierMapper.insert(supplier);
+        }else{
+            supplierMapper.update(supplier);
+        }
+    }
+    public void deleteSupplier(Integer id) {
+        supplierMapper.delete(id);
+    };
 
+    public List<Item> getAllItem(){
+        return itemMapper.getAll();
+    }
+
+    public Item getItemById(Integer id){
+        return itemMapper.getById(id);
+    }
 }

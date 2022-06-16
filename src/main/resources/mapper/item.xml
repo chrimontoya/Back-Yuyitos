@@ -14,4 +14,7 @@
         <include refid="selectAll"/>
         WHERE id_rubro = #{id}
     </select>
+    <select id="getAll" resultMap="itemResultMap">
+        <include refid="selectAll"/>
+    </select>
 </mapper>

@@ -4,10 +4,7 @@ import cl.pi.almacen.model.Contact;
 import cl.pi.almacen.model.Supplier;
 import cl.pi.almacen.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,4 +25,12 @@ public class SupplierController {
         return service.getById(id);
     }
 
+    @PostMapping("/suppliers")
+    public void post(@RequestBody Supplier supplier){
+        service.saveSupplier(supplier);
+    }
+    @DeleteMapping("/suppliers/{id}")
+    public void delete(@PathVariable Integer id){
+        service.deleteSupplier(id);
+    }
 }
