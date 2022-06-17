@@ -101,12 +101,14 @@ public class Service {
         return supplierMapper.getById(id);
     }
 
-    public void saveSupplier(Supplier supplier){
+    public Integer saveSupplier(Supplier supplier){
+
         if(supplier.getId()==null){
             supplierMapper.insert(supplier);
         }else{
             supplierMapper.update(supplier);
         }
+        return supplier.getId();
     }
     public void deleteSupplier(Integer id) {
         supplierMapper.delete(id);
@@ -118,5 +120,13 @@ public class Service {
 
     public Item getItemById(Integer id){
         return itemMapper.getById(id);
+    }
+
+    public void saveContact(Contact contact){
+        if(contact.getId()==null){
+            contactMapper.insert(contact);
+        }else{
+            contactMapper.update(contact);
+        }
     }
 }

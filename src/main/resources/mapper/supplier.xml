@@ -17,11 +17,12 @@
     <select id="getAll" resultMap="supplierResultMap">
         <include refid="selectSql"/>
     </select>
-    <insert id="insert">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id_proveedor">
         INSERT INTO almacen.PROVEEDOR (rut,dv,nombre,RUBRO_id_rubro) VALUES (#{rut},#{dv},#{name},#{item.id})
+
     </insert>
     <update id="update">
-        UPDATE almacen.PROVEEDOR SET rut = #{rut},dv =#{dv},nombre =#{name},item =#{item} WHERE id_proveedor = #{id}
+        UPDATE almacen.PROVEEDOR SET rut = #{rut},dv =#{dv},nombre =#{name},RUBRO_id_rubro =#{item} WHERE id_proveedor = #{id}
     </update>
     <delete id="delete">
         DELETE FROM almacen.PROVEEDOR WHERE id_proveedor = #{id}

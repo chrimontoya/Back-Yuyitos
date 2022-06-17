@@ -7,10 +7,10 @@
         <id column="id_contacto" property="id"/>
         <result column="email" property="email"/>
         <result column="telefono" property="phone"/>
-        <result column="PROVEEDOR_id_proveedor" property="proveedor"/>
+        <result column="PROVEEDOR_id_proveedor" property="supplier"/>
     </resultMap>
     <sql id="selectSql">
-        SELECT * FROM CONTACTO
+        SELECT id_contacto, email, telefono, PROVEEDOR_id_proveedor FROM CONTACTO
     </sql>
     <select id="getAll" resultMap="contactResultMap">
         <include refid="selectSql"/>
@@ -19,4 +19,10 @@
         <include refid="selectSql"/>
         WHERE PROVEEDOR_id_proveedor = #{id}
     </select>
+    <insert id="insert">
+        INSERT INTO contacto (email, telefono, PROVEEDOR_id_proveedor) VALUES (#{email},#{phone},#{supplier});
+    </insert>
+    <update id="update">
+        UPDATE contacto SET email =#{email}, telefono =#{phone}, PROVEEDOR_id_proveedor = #{supplier} WHERE id_contacto = #{id}
+    </update>
 </mapper>

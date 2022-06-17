@@ -26,8 +26,8 @@ public class SupplierController {
     }
 
     @PostMapping("/suppliers")
-    public void post(@RequestBody Supplier supplier){
-        service.saveSupplier(supplier);
+    public Integer post(@RequestBody Supplier supplier){
+        return service.saveSupplier(supplier);
     }
     @DeleteMapping("/suppliers/{id}")
     public void delete(@PathVariable Integer id){

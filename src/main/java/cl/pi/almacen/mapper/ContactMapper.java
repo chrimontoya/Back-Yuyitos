@@ -11,6 +11,9 @@ import java.util.List;
 public interface ContactMapper {
 
     List<Contact> getAll();
-
     Contact getById(Integer id);
+
+    void insert(Contact contact);
+
+    void update(Contact contact);
 }

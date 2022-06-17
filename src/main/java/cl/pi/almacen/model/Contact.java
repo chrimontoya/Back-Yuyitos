@@ -5,13 +5,13 @@ public class Contact {
     private Integer id;
     private String email;
     private Integer phone;
-    private Integer proveedor;
+    private Integer supplier;
 
-    public Contact(Integer id, String email, Integer phone, Integer proveedor) {
+    public Contact(Integer id, String email, Integer phone, Integer supplier) {
         this.id = id;
         this.email = email;
         this.phone = phone;
-        this.proveedor = proveedor;
+        this.supplier = supplier;
     }
 
     public Integer getId() {
@@ -38,11 +38,11 @@ public class Contact {
         this.phone = phone;
     }
 
-    public Integer getProveedor() {
-        return proveedor;
+    public Integer getSupplier() {
+        return supplier;
     }
 
-    public void setProveedor(Integer proveedor) {
-        this.proveedor = proveedor;
+    public void setSupplier(Integer proveedor) {
+        this.supplier = proveedor;
     }
 }
