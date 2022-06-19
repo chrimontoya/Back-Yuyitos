@@ -28,6 +28,9 @@ public class Service {
     private ContactMapper contactMapper;
 
     @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
     private ItemMapper itemMapper;
     public List<Order> getAllOrder(){
         return orderMapper.getAll();
@@ -128,5 +131,9 @@ public class Service {
         }else{
             contactMapper.update(contact);
         }
+    }
+
+    public User getUserByUsernameAndPassword(User user){
+        return userMapper.findByUsernameAndPassword(user);
     }
 }

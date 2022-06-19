@@ -12,5 +12,6 @@
         <mapper resource="mapper/supplier.xml"/>
         <mapper resource="mapper/item.xml"/>
         <mapper resource="mapper/contact.xml"/>
+        <mapper resource="mapper/user.xml"/>
     </mappers>
 </configuration>
