@@ -9,7 +9,6 @@
         <result column="dv" property="dv"/>
         <result column="nombre" property="name"/>
         <association property="item" column="RUBRO_id_rubro" select="cl.pi.almacen.mapper.ItemMapper.getById"/>
-        <association property="contact" column="id_proveedor" select="cl.pi.almacen.mapper.ContactMapper.getById"/>
     </resultMap>
     <sql id="selectSql">
         SELECT P.id_proveedor, P.rut, P.dv, P.nombre, P.RUBRO_id_rubro FROM PROVEEDOR P
@@ -22,7 +21,7 @@
 
     </insert>
     <update id="update">
-        UPDATE almacen.PROVEEDOR SET rut = #{rut},dv =#{dv},nombre =#{name},RUBRO_id_rubro =#{item} WHERE id_proveedor = #{id}
+        UPDATE almacen.PROVEEDOR SET rut = #{rut},dv =#{dv},nombre =#{name},RUBRO_id_rubro =#{item.id} WHERE id_proveedor = #{id}
     </update>
     <delete id="delete">
         DELETE FROM almacen.PROVEEDOR WHERE id_proveedor = #{id}

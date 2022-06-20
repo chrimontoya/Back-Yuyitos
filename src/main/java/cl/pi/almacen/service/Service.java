@@ -133,6 +133,14 @@ public class Service {
         }
     }
 
+    public List<Contact> getAllContact(){
+        return contactMapper.getAll();
+    }
+
+    public Contact getContactById(Integer id){
+        return contactMapper.getById(id);
+    }
+
     public User getUserByUsernameAndPassword(User user){
         return userMapper.findByUsernameAndPassword(user);
     }

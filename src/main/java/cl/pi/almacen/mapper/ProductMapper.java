@@ -16,6 +16,4 @@ public interface ProductMapper {
     void update(Product product);
     void delete(Integer id);
 
-
-
 }

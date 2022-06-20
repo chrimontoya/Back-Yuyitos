@@ -7,17 +7,9 @@ public class Product {
     private Integer id;
     private String name;
     private Integer stock;
-    private Date date_expirate;
+    private Date dateExpirate;
     private String image;
     private CategoryType categoryType;
-
-    public Product(Integer id, String name, Integer stock, Date date_expirate, String image) {
-        this.id = id;
-        this.name = name;
-        this.stock = stock;
-        this.date_expirate = date_expirate;
-        this.image = image;
-    }
 
     public Integer getId() {
         return id;
@@ -43,12 +35,12 @@ public class Product {
         this.stock = stock;
     }
 
-    public Date getDate_expirate() {
-        return date_expirate;
+    public Date getDateExpirate() {
+        return dateExpirate;
     }
 
-    public void setDate_expirate(Date date_expirate) {
-        this.date_expirate = date_expirate;
+    public void setDateExpirate(Date dateExpirate) {
+        this.dateExpirate = dateExpirate;
     }
 
     public String getImage() {

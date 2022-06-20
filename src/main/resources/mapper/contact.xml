@@ -17,7 +17,7 @@
     </select>
     <select id="getById" resultMap="contactResultMap">
         <include refid="selectSql"/>
-        WHERE PROVEEDOR_id_proveedor = #{id}
+        WHERE id_contacto = #{id}
     </select>
     <insert id="insert">
         INSERT INTO contacto (email, telefono, PROVEEDOR_id_proveedor) VALUES (#{email},#{phone},#{supplier});
