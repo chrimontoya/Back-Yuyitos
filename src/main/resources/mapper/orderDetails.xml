@@ -5,7 +5,6 @@
 <mapper namespace="cl.pi.almacen.mapper.OrderDetailsMapper">
     <resultMap id="orderDetailsResultMap" type="cl.pi.almacen.model.OrderDetails">
         <result column="id_detalle_orden" property="id"/>
-        <result column="nombre_producto" property="nameProduct"/>
         <result column="cantidad" property="stock"/>
         <result column="monto" property="price"/>
         <result column="fecha_vencimiento" property="dateExpiration"/>
@@ -13,7 +12,7 @@
         <result column="ORDEN_id_orden" property="order"/>
     </resultMap>
     <sql id="selectAll">
-        SELECT id_detalle_orden, nombre_producto, cantidad, monto, fecha_vencimiento, PRODUCTO_id_producto, ORDEN_id_orden FROM almacen.DETALLE_ORDEN
+        SELECT id_detalle_orden, cantidad, monto, fecha_vencimiento, PRODUCTO_id_producto, ORDEN_id_orden FROM almacen.DETALLE_ORDEN
     </sql>
     <select id="getAll" resultMap="orderDetailsResultMap">
         <include refid="selectAll"/>
@@ -23,11 +22,11 @@
         WHERE id_detalle_orden = #{id}
     </select>
     <insert id="insert">
-        INSERT INTO DETALLE_ORDEN (nombre_producto, cantidad, monto, fecha_vencimiento, PRODUCTO_id_producto, ORDEN_id_orden)
+        INSERT INTO DETALLE_ORDEN (cantidad, monto, fecha_vencimiento, PRODUCTO_id_producto, ORDEN_id_orden)
         VALUES (#{nameProduct},#{stock},#{price},#{dateExpiration},#{product},#{order})
     </insert>
     <update id="update">
-        UPDATE DETALLE_ORDEN SET nombre_producto = #{nameProduct},cantidad = #{stock},monto = #{price},fecha_vencimiento = #{dateExpiration},PRODUCTO_id_producto = #{product},ORDEN_id_orden = #{order}
+        UPDATE DETALLE_ORDEN SET cantidad = #{stock},monto = #{price},fecha_vencimiento = #{dateExpiration},PRODUCTO_id_producto = #{product},ORDEN_id_orden = #{order}
                              WHERE id_detalle_orden = #{id}
     </update>
     <delete id="delete">

@@ -5,16 +5,14 @@ import java.util.Date;
 public class OrderDetails {
 
     public Integer id;
-    public String nameProduct;
     public Integer stock;
     public Integer price;
     public Date dateExpiration;
     public Integer product;
     public Integer order;
 
-    public OrderDetails(Integer id, String nameProduct, Integer stock, Integer price, Date dateExpiration, Integer product, Integer order) {
+    public OrderDetails(Integer id, Integer stock, Integer price, Date dateExpiration, Integer product, Integer order) {
         this.id = id;
-        this.nameProduct = nameProduct;
         this.stock = stock;
         this.price = price;
         this.dateExpiration = dateExpiration;
@@ -28,14 +26,6 @@ public class OrderDetails {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getNameProduct() {
-        return nameProduct;
-    }
-
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
     }
 
     public Integer getStock() {

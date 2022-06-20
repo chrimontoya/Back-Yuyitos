@@ -7,7 +7,7 @@
         <result column="id_orden" property="id"/>
         <result column="fecha" property="dateCreate"/>
         <result column="estado" property="status"/>
-        <result column="PROVEEDOR_id_proveedor" property="supplier"/>
+        <association property="supplier" column="PROVEEDOR_id_proveedor" select="cl.pi.almacen.mapper.SupplierMapper.getById"/>
     </resultMap>
 
     <sql id="orderSql" >

@@ -16,6 +16,10 @@
     <select id="getAll" resultMap="supplierResultMap">
         <include refid="selectSql"/>
     </select>
+    <select id="getById" resultMap="supplierResultMap">
+        <include refid="selectSql"/>
+        WHERE P.id_proveedor = #{id}
+    </select>
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id_proveedor">
         INSERT INTO almacen.PROVEEDOR (rut,dv,nombre,RUBRO_id_rubro) VALUES (#{rut},#{dv},#{name},#{item.id})
 

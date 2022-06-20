@@ -8,14 +8,7 @@ public class Order {
     private Integer id;
     private Boolean status;
     private Date dateCreate;
-    private Integer supplier;
-
-    public Order(Integer id, Boolean status, Date dateCreate, Integer supplier) {
-        this.id = id;
-        this.status = status;
-        this.dateCreate = dateCreate;
-        this.supplier = supplier;
-    }
+    private Supplier supplier;
 
     public Integer getId() {
         return id;
@@ -41,11 +34,11 @@ public class Order {
         this.dateCreate = dateCreate;
     }
 
-    public Integer getSupplier() {
+    public Supplier getSupplier() {
         return supplier;
     }
 
-    public void setSupplier(Integer supplier) {
+    public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
     }
 }
