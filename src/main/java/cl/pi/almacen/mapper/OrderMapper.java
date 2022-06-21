@@ -10,7 +10,7 @@ import java.util.List;
 public interface OrderMapper {
     List<Order> getAll();
     Order getById(Integer id);
-    void insert(Order order);
+    Integer insert(Order order);
     void update(Order order);
     void delete(Integer id);
 }

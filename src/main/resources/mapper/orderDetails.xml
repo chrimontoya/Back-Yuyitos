@@ -8,8 +8,8 @@
         <result column="cantidad" property="stock"/>
         <result column="monto" property="price"/>
         <result column="fecha_vencimiento" property="dateExpiration"/>
-        <result column="PRODUCTO_id_producto" property="product"/>
-        <result column="ORDEN_id_orden" property="order"/>
+        <association property="product" column="PRODUCTO_id_producto" select="cl.pi.almacen.mapper.ProductMapper.getById"/>
+        <association property="order" column="ORDEN_id_orden" select="cl.pi.almacen.mapper.OrderMapper.getById"/>
     </resultMap>
     <sql id="selectAll">
         SELECT id_detalle_orden, cantidad, monto, fecha_vencimiento, PRODUCTO_id_producto, ORDEN_id_orden FROM almacen.DETALLE_ORDEN
@@ -23,10 +23,10 @@
     </select>
     <insert id="insert">
         INSERT INTO DETALLE_ORDEN (cantidad, monto, fecha_vencimiento, PRODUCTO_id_producto, ORDEN_id_orden)
-        VALUES (#{nameProduct},#{stock},#{price},#{dateExpiration},#{product},#{order})
+        VALUES (#{stock},#{price},#{dateExpiration},#{product.id},#{order.id})
     </insert>
     <update id="update">
-        UPDATE DETALLE_ORDEN SET cantidad = #{stock},monto = #{price},fecha_vencimiento = #{dateExpiration},PRODUCTO_id_producto = #{product},ORDEN_id_orden = #{order}
+        UPDATE DETALLE_ORDEN SET cantidad = #{stock},monto = #{price},fecha_vencimiento = #{dateExpiration},PRODUCTO_id_producto = #{product.id},ORDEN_id_orden = #{order.id}
                              WHERE id_detalle_orden = #{id}
     </update>
     <delete id="delete">

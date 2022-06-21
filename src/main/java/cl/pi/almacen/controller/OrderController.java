@@ -24,8 +24,8 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public void post(@RequestBody Order order){
-        service.saveOrder(order);
+    public Integer post(@RequestBody Order order){
+        return service.saveOrder(order);
     }
 
     @DeleteMapping("/orders/{id}")

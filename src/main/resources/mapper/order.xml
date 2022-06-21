@@ -21,11 +21,11 @@
         <include refid="orderSql"/>
         WHERE id_orden = #{id}
     </select>
-    <insert id="insert">
-        INSERT INTO almacen.ORDEN (fecha, estado, PROVEEDOR_id_proveedor) VALUES (#{dateCreate},#{status},#{supplier})
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="id" keyColumn="id_orden">
+        INSERT INTO almacen.ORDEN (fecha, estado, PROVEEDOR_id_proveedor) VALUES (#{dateCreate},#{status},#{supplier.id})
     </insert>
-    <update id="update">
-        UPDATE almacen.ORDEN SET fecha = #{dateCreate}, estado = #{status}, PROVEEDOR_id_proveedor = #{supplier} WHERE id_orden = #{id}
+    <update id="update" useGeneratedKeys="true" keyProperty="id" keyColumn="id_orden">
+        UPDATE almacen.ORDEN SET fecha = #{dateCreate}, estado = #{status}, PROVEEDOR_id_proveedor = #{supplier.id} WHERE id_orden = #{id}
     </update>
     <delete id="delete">
         DELETE FROM almacen.ORDEN WHERE id_orden = #{id}

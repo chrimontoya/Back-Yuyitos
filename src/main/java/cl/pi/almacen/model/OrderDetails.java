@@ -8,17 +8,8 @@ public class OrderDetails {
     public Integer stock;
     public Integer price;
     public Date dateExpiration;
-    public Integer product;
-    public Integer order;
-
-    public OrderDetails(Integer id, Integer stock, Integer price, Date dateExpiration, Integer product, Integer order) {
-        this.id = id;
-        this.stock = stock;
-        this.price = price;
-        this.dateExpiration = dateExpiration;
-        this.product = product;
-        this.order = order;
-    }
+    public Product product;
+    public Order order;
 
     public Integer getId() {
         return id;
@@ -52,19 +43,19 @@ public class OrderDetails {
         this.dateExpiration = dateExpiration;
     }
 
-    public Integer getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(Integer product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 
-    public Integer getOrder() {
+    public Order getOrder() {
         return order;
     }
 
-    public void setOrder(Integer order) {
+    public void setOrder(Order order) {
         this.order = order;
     }
 }

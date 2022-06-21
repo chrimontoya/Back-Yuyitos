@@ -28,4 +28,7 @@ public class OrderDetailsController {
     public void post(@RequestBody OrderDetails orderDetails){
         service.saveOrderDetails(orderDetails);
     };
+
+    @DeleteMapping("/orderDetails/{id}")
+    public void delete(@PathVariable Integer id) { service.deleteOrderDetails(id); };
 }

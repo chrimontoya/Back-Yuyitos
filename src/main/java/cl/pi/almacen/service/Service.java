@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @org.springframework.stereotype.Service
@@ -40,12 +41,14 @@ public class Service {
         return orderMapper.getById(id);
     }
 
-    public void saveOrder(Order order){
+    public Integer saveOrder(Order order){
         if(order.getId()==null){
             orderMapper.insert(order);
         }else{
             orderMapper.update(order);
         }
+
+        return order.getId();
     }
     public void deleteOrder(Integer id){
         orderMapper.delete(id);
@@ -61,10 +64,15 @@ public class Service {
 
     public void saveOrderDetails(OrderDetails orderDetails) {
         if(orderDetails.getId()==null){
+            orderDetails.setDateExpiration(new Date());
             orderDetailsMapper.insert(orderDetails);
         }else{
             orderDetailsMapper.update(orderDetails);
         }
+    }
+
+    public void deleteOrderDetails(Integer id){
+        orderDetailsMapper.delete(id);
     }
 
     public List<Product> getAllProduct(){
