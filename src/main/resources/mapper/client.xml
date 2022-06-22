@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.pi.almacen.mapper.ClientMapper">
+    <resultMap id="clientResultMap" type="cl.pi.almacen.model.Client">
+        <result column="id_cliente" property="id"/>
+        <result column="rut" property="rut"/>
+        <result column="dv" property="dv"/>
+        <result column="nombres" property="name"/>
+        <result column="apellido_paterno" property="lastName"/>
+        <result column="apellido_materno" property="lastNameMother"/>
+        <result column="FIADO_id_fiado" property="fiado"/>
+    </resultMap>
+    <sql id="selectAll">
+        SELECT id_cliente, rut, dv, nombres, apellido_paterno, apellido_materno, FIADO_id_fiado FROM almacen.CLIENTE
+    </sql>
+    <select id="getById" resultMap="clientResultMap">
+        <include refid="selectAll"/>
+        WHERE id_cliente = #{id}
+    </select>
+    <select id="getAll" resultMap="clientResultMap">
+        <include refid="selectAll"/>
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id_cliente">
+        INSERT INTO cliente (rut, dv, nombres, apellido_paterno, apellido_materno, FIADO_id_fiado) VALUES (#{rut},#{dv},#{name},#{lastName},#{lastNameMother},#{fiado})
+    </insert>
+    <update id="update">
+        UPDATE CLIENTE SET rut = #{rut},dv = #{dv},nombres = #{name},apellido_paterno = #{lastName}, apellido_materno = #{lastNameMother}, FIADO_id_fiado =#{fiado}
+        WHERE id_cliente = #{id}
+    </update>
+</mapper>

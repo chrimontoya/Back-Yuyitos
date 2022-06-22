@@ -7,13 +7,14 @@
         <result column="id_producto" property="id"/>
         <result column="nombre" property="name"/>
         <result column="cantidad" property="stock"/>
+        <result column="precio" property="price"/>
         <result column="fecha_vencimiento" property="dateExpirate"/>
         <result column="imagen" property="image"/>
         <association property="categoryType" column="TIPO_CATEGORIA_id_tipo_categoria" select="getProductAndType"/>
     </resultMap>
 
     <sql id="productSql" >
-        SELECT id_producto,nombre,cantidad,fecha_vencimiento,imagen,TIPO_CATEGORIA_id_tipo_categoria
+        SELECT id_producto,nombre,cantidad,precio,fecha_vencimiento,imagen,TIPO_CATEGORIA_id_tipo_categoria
         FROM almacen.PRODUCTO
     </sql>
     <select id="getAll" resultMap="productResultMap">
@@ -27,13 +28,13 @@
         SELECT * FROM TIPO_CATEGORIA WHERE id_tipo_categoria = #{id}
     </select>
     <insert id="insert">
-        INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria)
-        VALUES ( #{name},#{stock},#{dateExpirate},#{image},#{categoryType.id})
+        INSERT INTO almacen.PRODUCTO (nombre, cantidad,precio, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria)
+        VALUES ( #{name},#{stock},#{price},#{dateExpirate},#{image},#{categoryType.id})
     </insert>
     <delete id="delete">
         DELETE FROM almacen.PRODUCTO WHERE id_producto = #{id}
     </delete>
     <update id="update">
-        UPDATE almacen.PRODUCTO SET nombre =#{name}, cantidad =#{stock}, fecha_vencimiento =#{dateExpirate}, imagen =#{image} WHERE id_producto = #{id}
+        UPDATE almacen.PRODUCTO SET nombre =#{name}, cantidad =#{stock},precio=#{price}, fecha_vencimiento =#{dateExpirate}, imagen =#{image},TIPO_CATEGORIA_id_tipo_categoria = #{categoryType.id} WHERE id_producto = #{id}
     </update>
 </mapper>

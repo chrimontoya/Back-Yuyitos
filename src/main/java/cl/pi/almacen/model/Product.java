@@ -7,6 +7,8 @@ public class Product {
     private Integer id;
     private String name;
     private Integer stock;
+
+    private Integer price;
     private Date dateExpirate;
     private String image;
     private CategoryType categoryType;
@@ -33,6 +35,13 @@ public class Product {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
     public Date getDateExpirate() {

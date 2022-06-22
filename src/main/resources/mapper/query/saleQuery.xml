@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.pi.almacen.mapper.SaleMapper">
+    <resultMap id="saleQueryResultMap" type="cl.pi.almacen.model.query.SaleAndDetailQuery">
+        <result column="id_venta" property="idSale"/>
+        <result column="id_detalle_venta" property="idSaleDetail"/>
+        <result column="id_cliente" property="idClient"/>
+        <result column="fecha" property="dateCreation"/>
+        <result column="precio" property="price"/>
+        <result column="cantidad" property="stock"/>
+        <result column="id_producto" property="idProduct"/>
+        <result column="nombre" property="nameProduct"/>
+        <result column="cantidad" property="stockProduct"/>
+        <result column="fecha_vencimiento" property="dateExpirate"/>
+        <result column="imagen" property="image"/>
+        <result column="rut" property="rut"/>
+        <result column="dv" property="dv"/>
+        <result column="nombres" property="name"/>
+        <result column="apellido_paterno" property="lastName"/>
+        <result column="apellido_materno" property="lastNameMother"/>
+        <result column="FIADO_id_fiado" property="fiado"/>
+    </resultMap>
+    <sql id="selectAllDetails">
+        SELECT
+            venta.id_venta,
+            detalle_venta.id_detalle_venta,
+            cliente.id_cliente,
+            venta.fecha,
+            detalle_venta.cantidad,
+            producto.id_producto,
+            producto.nombre,
+            producto.cantidad,
+            producto.precio,
+            producto.fecha_vencimiento,
+            producto.imagen,
+            cliente.rut,
+            cliente.dv,
+            cliente.nombres,
+            cliente.apellido_paterno,
+            cliente.apellido_materno,
+            cliente.FIADO_id_fiado
+        FROM VENTA
+                 INNER JOIN DETALLE_VENTA ON detalle_venta.VENTA_id_venta=venta.id_venta
+                 INNER JOIN CLIENTE ON VENTA.CLIENTE_id_cliente = CLIENTE_id_cliente
+                 INNER JOIN PRODUCTO ON PRODUCTO.id_producto = DETALLE_VENTA.PRODUCTO_id_producto
+    </sql>
+    <select id="getAllSaleAndDetails" resultMap="saleQueryResultMap">
+        <include refid="selectAllDetails"/>
+        WHERE cliente.id_cliente = venta.CLIENTE_id_cliente;
+    </select>
+</mapper>

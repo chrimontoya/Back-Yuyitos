@@ -13,5 +13,9 @@
         <mapper resource="mapper/item.xml"/>
         <mapper resource="mapper/contact.xml"/>
         <mapper resource="mapper/user.xml"/>
+        <mapper resource="mapper/client.xml"/>
+        <mapper resource="mapper/sale.xml"/>
+        <mapper resource="mapper/saleDetails.xml"/>
+        <mapper resource="mapper/query/saleQuery.xml"/>
     </mappers>
 </configuration>

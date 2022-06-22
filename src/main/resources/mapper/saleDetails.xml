@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.pi.almacen.mapper.SaleDetailsMapper">
+    <resultMap id="saleDetailsResultMap" type="cl.pi.almacen.model.SaleDetails">
+        <result column="id_detalle_venta" property="id"/>
+        <result column="cantidad" property="stock"/>
+        <result column="VENTA_id_venta" property="sale"/>
+        <result column="PRODUCTO_id_producto" property="product"/>
+    </resultMap>
+    <sql id="selectAll">
+        SELECT id_detalle_venta, cantidad,VENTA_id_venta,PRODUCTO_id_producto FROM almacen.DETALLE_VENTA
+    </sql>
+    <select id="getById" resultMap="saleDetailsResultMap">
+        <include refid="selectAll"/>
+        WHERE id_detalle_orden = #{id}
+    </select>
+    <select id="getAll" resultMap="saleDetailsResultMap">
+        <include refid="selectAll"/>
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id_venta">
+        INSERT INTO DETALLE_VENTA (cantidad, VENTA_id_venta, PRODUCTO_id_producto) VALUES (#{stock},#{sale},#{product})
+    </insert>
+    <update id="update">
+        UPDATE DETALLE_VENTA SET cantidad = #{stock},VENTA_id_venta = #{sale},PRODUCTO_id_producto = #{product} WHERE id_detalle_venta =#{id}
+    </update>
+    <delete id="delete">
+        DELETE FROM DETALLE_VENTA WHERE id_detalle_venta = #{id}
+    </delete>
+</mapper>

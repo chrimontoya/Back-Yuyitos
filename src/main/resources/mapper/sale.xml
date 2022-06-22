@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.pi.almacen.mapper.SaleMapper">
+    <resultMap id="saleResultMap" type="cl.pi.almacen.model.Sale">
+        <result column="id_venta" property="id"/>
+        <result column="fecha" property="dateCreation"/>
+        <association property="client" column="CLIENTE_id_cliente" select="cl.pi.almacen.mapper.ClientMapper.getById"/>
+    </resultMap>
+    <sql id="selectAll">
+        SELECT id_venta, fecha, CLIENTE_id_cliente FROM almacen.VENTA
+    </sql>
+    <select id="getById" resultMap="saleResultMap">
+        <include refid="selectAll"/>
+        WHERE id_venta = #{id}
+    </select>
+    <select id="getAll" resultMap="saleResultMap">
+        <include refid="selectAll"/>
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id_venta">
+        INSERT INTO VENTA (fecha, CLIENTE_id_cliente) VALUES (#{dateCreation},#{client.id})
+    </insert>
+    <update id="update">
+        UPDATE VENTA SET fecha = #{dateCreation}, CLIENTE_id_cliente = #{client.id} where id_venta = #{id}
+    </update>
+    <delete id="delete">
+        DELETE FROM VENTA WHERE id_venta = #{id}
+    </delete>
+</mapper>
