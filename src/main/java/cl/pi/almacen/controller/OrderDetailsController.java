@@ -31,4 +31,7 @@ public class OrderDetailsController {
 
     @DeleteMapping("/orderDetails/{id}")
     public void delete(@PathVariable Integer id) { service.deleteOrderDetails(id); };
+
+    @GetMapping("/orderDetails/find-by-id-order/{id}")
+    public List<OrderDetails> findByIdOrder(@PathVariable Integer id){ return service.findOrderDetailsByIdOrder(id);}
 }

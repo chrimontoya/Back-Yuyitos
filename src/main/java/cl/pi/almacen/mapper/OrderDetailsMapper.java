@@ -14,6 +14,8 @@ public interface OrderDetailsMapper {
 
     OrderDetails getById(Integer id);
 
+    List<OrderDetails> findByIdOrder(Integer id);
+
     void insert(OrderDetails orderDetails);
 
     void update(OrderDetails orderDetails);

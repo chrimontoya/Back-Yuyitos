@@ -33,6 +33,9 @@ public class OrderController {
         service.deleteOrder(id);
     }
 
-
+    @GetMapping("/orders/orders-by-status-zero")
+    public List<Order> getAllByStatusZero(){
+        return service.getAllByStatusZero();
+    }
 
 }

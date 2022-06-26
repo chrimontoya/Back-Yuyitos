@@ -11,6 +11,9 @@ public interface OrderMapper {
     List<Order> getAll();
     Order getById(Integer id);
     Integer insert(Order order);
+
+    List<Order> getAllByStatusZero();
+
     void update(Order order);
     void delete(Integer id);
 }

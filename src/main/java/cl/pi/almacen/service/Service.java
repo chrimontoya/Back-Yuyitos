@@ -62,12 +62,20 @@ public class Service {
         orderMapper.delete(id);
     }
 
+    public List<Order> getAllByStatusZero(){
+        return orderMapper.getAllByStatusZero();
+    }
+
     public List<OrderDetails> getAllOrdersDetails(){
         return orderDetailsMapper.getAll();
     }
 
     public OrderDetails getByIdOrderDetails(Integer id){
         return orderDetailsMapper.getById(id);
+    }
+
+    public List<OrderDetails> findOrderDetailsByIdOrder(Integer id){
+        return orderDetailsMapper.findByIdOrder(id);
     }
 
     public void saveOrderDetails(OrderDetails orderDetails) {

@@ -21,6 +21,10 @@
         <include refid="orderSql"/>
         WHERE id_orden = #{id}
     </select>
+    <select id="getAllByStatusZero" resultMap="orderResultMap">
+        <include refid="orderSql"/>
+        WHERE estado = 0
+    </select>
     <insert id="insert"  useGeneratedKeys="true" keyProperty="id" keyColumn="id_orden">
         INSERT INTO almacen.ORDEN (fecha, estado, PROVEEDOR_id_proveedor) VALUES (#{dateCreate},#{status},#{supplier.id})
     </insert>
