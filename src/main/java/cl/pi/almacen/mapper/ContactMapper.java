@@ -14,6 +14,7 @@ public interface ContactMapper {
     Contact getById(Integer id);
 
     void insert(Contact contact);
-
     void update(Contact contact);
+
+    List<Contact> findByIdSupplier(Integer id);
 }

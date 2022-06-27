@@ -28,5 +28,7 @@ public class ContactController {
     public Contact get(@PathVariable Integer id){
         return service.getContactById(id);
     }
+    @GetMapping("/contact/find-by-id-supplier/{id}")
+    public List<Contact> findByIdSupplier(@PathVariable Integer id){ return service.findContactByIdSupplier(id);}
 
 }

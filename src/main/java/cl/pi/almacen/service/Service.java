@@ -165,6 +165,7 @@ public class Service {
         return contactMapper.getById(id);
     }
 
+    public List<Contact> findContactByIdSupplier(Integer id){ return contactMapper.findByIdSupplier(id);}
     public User getUserByUsernameAndPassword(User user){
         return userMapper.findByUsernameAndPassword(user);
     }
