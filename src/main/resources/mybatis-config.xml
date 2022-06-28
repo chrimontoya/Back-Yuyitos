@@ -17,5 +17,6 @@
         <mapper resource="mapper/sale.xml"/>
         <mapper resource="mapper/saleDetails.xml"/>
         <mapper resource="mapper/query/saleQuery.xml"/>
+        <mapper resource="mapper/query/orderDetailsQuery.xml"/>
     </mappers>
 </configuration>

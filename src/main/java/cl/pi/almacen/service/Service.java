@@ -2,6 +2,7 @@ package cl.pi.almacen.service;
 
 import cl.pi.almacen.mapper.*;
 import cl.pi.almacen.model.*;
+import cl.pi.almacen.model.query.OrderDetailsQuery;
 import cl.pi.almacen.model.query.SaleAndDetailQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,6 +90,10 @@ public class Service {
 
     public void deleteOrderDetails(Integer id){
         orderDetailsMapper.delete(id);
+    }
+
+    public List<OrderDetailsQuery> getAllDetailsByIdOrder(Integer id){
+        return orderDetailsMapper.getAllDetailsByIdOrder(id);
     }
 
     public List<Product> getAllProduct(){

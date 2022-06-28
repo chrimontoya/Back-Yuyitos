@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.pi.almacen.mapper.OrderDetailsMapper">
+    <resultMap id="orderDetailsQueryResultMap" type="cl.pi.almacen.model.query.OrderDetailsQuery">
+        <result column="id_detalle_orden" property="id"/>
+        <result column="nombre" property="product"/>
+        <result column="cantidad" property="stock"/>
+        <result column="monto" property="price"/>
+        <result column="fecha_vencimiento" property="dateExpirate"/>
+    </resultMap>
+    <sql id="selectAllDetailsByOrder">
+        SELECT id_detalle_orden,
+               p.nombre,
+               do.cantidad,
+               monto,
+               do.fecha_vencimiento
+        FROM detalle_orden do
+        INNER JOIN producto p on do.PRODUCTO_id_producto = p.id_producto
+    </sql>
+    <select id="getAllDetailsByIdOrder" resultMap="orderDetailsQueryResultMap">
+        <include refid="selectAllDetailsByOrder"/>
+        WHERE ORDEN_id_orden = #{id}
+    </select>
+</mapper>

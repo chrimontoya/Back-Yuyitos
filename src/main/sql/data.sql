@@ -27,6 +27,27 @@ INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Conf
 INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Confort 24u",5);
 INSERT INTO almacen.TIPO_CATEGORIA (nombre,CATEGORIA_id_categoria) values ("Vasos de plastico",5);
 
+INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria, precio)
+VALUES("Detergente genérico",0,null,null,16,2000);
+INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria, precio)
+VALUES("Detergente genérico azul",0,null,null,17,4000);
+INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria, precio)
+VALUES("Peras",0,null,null,11,400);
+INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria, precio)
+VALUES("Manzana roja",0,null,null,11,600);
+INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria, precio)
+VALUES("Manzana verde",0,null,null,11,700);
+INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria, precio)
+VALUES("Quick",0,null,null,18,1000);
+INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria, precio)
+VALUES("Quick con cloro",0,null,null,19,4000);
+INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria, precio)
+VALUES("Cocacola",0,null,null,13,900);
+INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria, precio)
+VALUES("Cocacola",0,null,null,14,1250);
+INSERT INTO almacen.PRODUCTO (nombre, cantidad, fecha_vencimiento, imagen, TIPO_CATEGORIA_id_tipo_categoria, precio)
+VALUES("Cocacola",0,null,null,15,2250);
+
 INSERT INTO almacen.rubro (nombre) VALUES ("Ganadería");
 INSERT INTO almacen.rubro (nombre) VALUES ("Pesca");
 INSERT INTO almacen.rubro (nombre) VALUES ("Alimentos");

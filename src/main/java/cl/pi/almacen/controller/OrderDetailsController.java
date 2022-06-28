@@ -1,6 +1,7 @@
 package cl.pi.almacen.controller;
 
 import cl.pi.almacen.model.OrderDetails;
+import cl.pi.almacen.model.query.OrderDetailsQuery;
 import cl.pi.almacen.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,4 +35,9 @@ public class OrderDetailsController {
 
     @GetMapping("/orderDetails/find-by-id-order/{id}")
     public List<OrderDetails> findByIdOrder(@PathVariable Integer id){ return service.findOrderDetailsByIdOrder(id);}
+
+    @GetMapping("/orderDetails/get-all-by-order-id/{id}")
+    public List<OrderDetailsQuery> getAllDetailsByIdOrder(@PathVariable Integer id){
+        return service.getAllDetailsByIdOrder(id);
+    }
 }
