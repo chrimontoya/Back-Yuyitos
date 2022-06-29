@@ -69,3 +69,6 @@ INSERT INTO almacen.rol (usuario) VALUES ("INACTIVO");
 INSERT INTO almacen.usuario (usuario, password, rol_id_rol) VALUES ("almacen","1234",1);
 INSERT INTO almacen.usuario (usuario, password, rol_id_rol) VALUES ("proveedor","1234",2);
 INSERT INTO almacen.usuario (usuario, password, rol_id_rol) VALUES ("cliente","1234",3);
+
+INSERT INTO almacen.fiado (estado) VALUES (0);
+INSERT INTO almacen.fiado (estado) VALUES (1);
